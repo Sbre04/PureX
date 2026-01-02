@@ -1,0 +1,41 @@
+{
+  "marketing_hooks": [
+    "comment \"", "drop a ", "reply with", "dm me", "sending to everyone", 
+    "repost this", "like and follow", "free guide", "access for free",
+    "don't miss out", "limited spots", "check the link", "stop paying",
+    "cheat sheet", "masterclass", "10x your", "steal my", "bookmark this",
+    "link in bio", "grab your copy", "thread 🧵", "unpopular opinion:",
+    "wrong answers only", "hear me out", "save this for later",
+    "still waiting for", "perfect for creators", "no limits", "try ", 
+    "click -", "just vibes"
+  ],
+  "ai_models": [
+    "gpt-4", "gpt-5", "gemini", "claude", "sora", "perplexity", 
+    "llama", "flux", "midjourney", "mistral", "grok", "chatgpt", "openai",
+    "apob", "runway", "pika"
+  ],
+  "gpt_isms": [
+    "delve", "tapestry", "realm", "landscape", "game-changer", "unleash",
+    "unlock", "elevate", "harness", "leverage", "symphony", "testament",
+    "crucial", "pivotal", "nuanced", "comprehensive", "fostering",
+    "supercharge", "skyrocket", "demystify", "navigating the", 
+    "in today's digital", "buckle up", "dive in", "transformative",
+    "paradigm shift", "seamlessly", "intersection of"
+  ],
+  "sales_patterns": [
+    "productivity trap", "context switching", "workflow", "friction",
+    "flow is dead", "real productivity", "zero interruptions",
+    "no starting over", "lives inside my", "without ever leaving",
+    "paste context", "it is not the output", "productivity hack",
+    "moves like real", "already generating"
+  ],
+  "structural_triggers": [
+    "in conclusion", "here's a breakdown", "key takeaways", "to summarize",
+    "it's important to note", "remember that", "let's explore",
+    "tl;dr", "bottom line"
+  ],
+  "spam_patterns": [
+    "crypto", "airdrop", "whitelist", "presale", "memecoin", 
+    "100x gem", "passive income", "make money online", "pump", "moon"
+  ]
+}

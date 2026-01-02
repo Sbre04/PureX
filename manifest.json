@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Pure X - AI Forensic Sentinel",
+  "version": "22.0",
+  "description": "Advanced forensic detector for AI-generated content on X.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://twitter.com/*",
+    "*://x.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon48.png"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://twitter.com/*", "*://x.com/*"],
+      "js": ["lib/vader.js", "content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["keywords.json", "Slime.gif"],
+      "matches": ["*://twitter.com/*", "*://x.com/*"]
+    }
+  ]
+}

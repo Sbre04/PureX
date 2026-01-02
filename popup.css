@@ -1,0 +1,274 @@
+/* popup.css */
+:root {
+    --bg-dark: #020617;
+    --bg-light: #0f172a;
+    --accent: #FF9500;
+    --accent-glow: rgba(255, 149, 0, 0.4);
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --glass-bg: rgba(30, 41, 59, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Reset globale del box model */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    width: 340px;
+    height: 500px; /* AUMENTATO LEGGERMENTE PER FAR STARE TUTTO COMODO */
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-dark) 100%);
+    color: var(--text-main);
+    overflow: hidden; 
+    position: relative;
+}
+
+/* Sfondo Glow */
+.glow-bg {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: var(--accent);
+    filter: blur(120px);
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* --- MAIN VIEW --- */
+#main-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.top-bar {
+    display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; z-index: 20; position: relative;
+}
+.app-title { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: var(--text-muted); opacity: 0.7; }
+.icon-btn { background: transparent; border: none; color: var(--text-main); cursor: pointer; padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease; position: relative; }
+.icon-btn:hover { background: rgba(255, 255, 255, 0.1); }
+.pro-badge { position: absolute; top: 0; right: -2px; background: var(--accent); color: black; font-size: 8px; font-weight: 800; padding: 1px 3px; border-radius: 4px; }
+
+.main-container {
+    flex: 1; display: flex; flex-direction: column; justify-content: flex-start; /* CAMBIATO da space-between a flex-start per controllo migliore */
+    padding: 10px 20px 20px 20px; z-index: 1;
+}
+
+/* --- STATS SECTION & MASCOT (TITAN EFFECT) --- */
+.stats-section { 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 0; 
+    position: relative;
+    margin-bottom: 10px; /* Spazio extra sotto la sezione */
+}
+
+/* Contenitore della Mascotte */
+.mascot-display-container {
+    position: relative;
+    width: 100%;
+    height: 180px; /* Ridotto leggermente per guadagnare spazio */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    z-index: 0; 
+    margin-bottom: -30px; 
+}
+
+/* Immagine Mascotte GIGANTE */
+#mascot-img {
+    width: 420px; 
+    height: auto;
+    position: absolute;
+    top: -30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    image-rendering: pixelated; 
+    filter: drop-shadow(0 0 35px rgba(16, 185, 129, 0.3)); 
+    
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    
+    opacity: 0.85; 
+    transition: transform 0.3s ease;
+}
+
+/* Contenitore del numero */
+.counter-wrapper {
+    position: relative;
+    z-index: 10; 
+}
+
+/* RIGA TESTO E NUMERO */
+.stats-text-row {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    gap: 12px; 
+    position: relative;
+    z-index: 10; 
+}
+
+/* Il Numero (Bianco e più piccolo) */
+#bot-count { 
+    font-size: 52px;
+    margin: 0; 
+    font-weight: 800; 
+    line-height: 1; 
+    letter-spacing: -2px;
+    color: #ffffff; 
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
+
+/* Scritta Gialla (Più piccola) */
+.stats-label { 
+    color: var(--accent); 
+    font-size: 12px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    line-height: 1.2;
+    letter-spacing: 1.5px; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.status-indicator { 
+    display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-muted); 
+    margin-top: 20px; 
+    margin-bottom: 30px; /* --- FIX SPAZIATURA --- */
+    background: rgba(2, 6, 23, 0.6); 
+    padding: 6px 14px; border-radius: 20px; 
+    position: relative; z-index: 10;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.dot { width: 6px; height: 6px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; }
+
+/* --- CONTROLS --- */
+.controls-panel {
+    background-color: var(--glass-bg); 
+    width: 100%; 
+    border-radius: 20px; 
+    padding: 10px; 
+    backdrop-filter: blur(12px); border: 1px solid var(--glass-border); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    position: relative; z-index: 10;
+}
+.control-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 15px; }
+.label-group { display: flex; align-items: center; gap: 12px; }
+.label-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.row-icon { width: 18px; height: 18px; color: var(--text-muted); }
+.control-row span { font-size: 15px; font-weight: 500; color: #e2e8f0; }
+
+.round-checkbox-container { display: block; position: relative; cursor: pointer; font-size: 22px; user-select: none; }
+.round-checkbox-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+.checkmark { position: relative; display: inline-block; height: 24px; width: 24px; background-color: rgba(255,255,255,0.1); border-radius: 50%; border: 2px solid var(--text-muted); transition: all 0.3s ease; }
+.round-checkbox-container:hover input ~ .checkmark { background-color: rgba(255,255,255,0.2); }
+.round-checkbox-container input:checked ~ .checkmark { background-color: var(--accent); border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+.checkmark:after { content: ""; position: absolute; display: none; }
+.round-checkbox-container input:checked ~ .checkmark:after { display: block; }
+.round-checkbox-container .checkmark:after { left: 8px; top: 4px; width: 5px; height: 10px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+/* --- SIDE MENU --- */
+.side-menu {
+    position: absolute; top: 0; left: 0; width: 80%; height: 100%;
+    background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(20px);
+    z-index: 100; transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-right: 1px solid var(--glass-border); padding: 20px; 
+    display: flex; flex-direction: column;
+}
+.side-menu.open { transform: translateX(0); box-shadow: 10px 0 30px rgba(0,0,0,0.5); }
+
+.menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.menu-title { font-size: 18px; font-weight: 700; color: white; }
+.menu-items { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.menu-item-btn {
+    background: transparent; border: none; color: #e2e8f0; font-size: 16px; padding: 12px 0;
+    text-align: left; cursor: pointer; display: flex; align-items: center; gap: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s;
+}
+.menu-item-btn:hover { color: var(--accent); }
+.menu-footer { color: #475569; font-size: 11px; text-align: center; margin-top: auto; }
+
+/* --- WHITELIST SCREEN --- */
+.full-screen-view {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-dark); z-index: 200;
+    transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex; flex-direction: column;
+}
+.full-screen-view.visible { transform: translateX(0); }
+
+.view-header {
+    display: flex; align-items: center; justify-content: space-between; padding: 15px 20px;
+    border-bottom: 1px solid var(--glass-border); background: var(--bg-light);
+}
+.view-title { font-weight: 600; font-size: 16px; }
+
+.whitelist-container {
+    flex: 1; overflow-y: auto; padding: 0;
+}
+#whitelist-ul {
+    list-style: none; margin: 0; padding: 0;
+}
+.whitelist-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.2s;
+}
+.whitelist-item:hover { background: rgba(255,255,255,0.03); }
+.user-handle { color: #e2e8f0; font-size: 14px; font-weight: 500; }
+.remove-btn {
+    background: none; border: none; color: #ef4444; cursor: pointer; padding: 5px; opacity: 0.7; transition: opacity 0.2s;
+}
+.remove-btn:hover { opacity: 1; }
+
+#empty-state {
+    padding: 40px 20px; text-align: center; color: var(--text-muted); font-size: 13px; font-style: italic;
+}
+
+/* --- FOOTER FIRMA (Nuovo) --- */
+.signature-footer {
+    text-align: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-top: auto; /* La spinge in fondo */
+    padding-top: 15px;
+    letter-spacing: 1.5px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    user-select: none;
+}
+.signature-footer:hover { opacity: 1; }
+
+.dev-name {
+    color: var(--accent);
+    cursor: pointer;
+    margin-left: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.dev-name:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px var(--accent);
+}

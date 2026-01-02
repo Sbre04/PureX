@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="glow-bg"></div>
+
+    <div id="main-view">
+        <nav class="top-bar">
+            <button class="icon-btn" id="menu-btn" title="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            
+            <span class="app-title">Pure X</span>
+
+            <button class="icon-btn profile-btn" id="profile-btn" title="Upgrade to Premium">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span class="pro-badge">PRO</span>
+            </button>
+        </nav>
+
+        <div class="main-container">
+            <div class="stats-section">
+                <div class="mascot-display-container">
+                    <img id="mascot-img" src="Slime.gif" alt="Guardian Mascot">
+                </div>
+
+                <div class="stats-text-row">
+                    <h1 id="bot-count">0</h1>
+                    <div class="label-wrapper">
+                        <span class="stats-label">AI TEXT</span>
+                        <span class="stats-label">FOUND</span>
+                    </div>
+                </div>
+                
+                <div class="status-indicator">
+                    <span class="dot"></span> Scanning Background
+                </div>
+            </div>
+
+            <div class="controls-panel">
+                <div class="control-row">
+                    <div class="label-group">
+                        <svg class="row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                        <span>Auto-Clean (Delete)</span>
+                    </div>
+                    
+                    <label class="round-checkbox-container">
+                        <input type="checkbox" id="auto-clean-check">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="signature-footer">
+                SYSTEM ARCHITECT: <span id="dev-signature" class="dev-name">Davide De Rosa</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="side-menu" class="side-menu">
+        <div class="menu-header">
+            <span class="menu-title">Menu</span>
+            <button class="icon-btn close-btn" id="close-menu-btn">✕</button>
+        </div>
+        <div class="menu-items">
+            <button class="menu-item-btn" id="open-whitelist-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                Manage Whitelist
+            </button>
+            </div>
+        <div class="menu-footer">
+            v15.0 Stable
+        </div>
+    </div>
+
+    <div id="whitelist-screen" class="full-screen-view">
+        <div class="view-header">
+            <button class="icon-btn back-btn" id="back-from-whitelist">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <span class="view-title">Whitelisted Users</span>
+            <div style="width: 24px;"></div> </div>
+        
+        <div class="whitelist-container">
+            <ul id="whitelist-ul">
+                </ul>
+            <div id="empty-state" style="display:none;">No users whitelisted yet.</div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
