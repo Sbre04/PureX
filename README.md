@@ -5,7 +5,7 @@
 
 **Pure X** is an advanced browser extension designed to detect, highlight, and manage AI-generated content on X (formerly Twitter). It uses forensic text analysis (rhythm, structure, sentiment) to identify LLM patterns like GPT-4, Claude, and Gemini.
 
-![Preview](https://x.com/i/status/2005449683452428328)
+[👉 View Tweet on X](https://twitter.com/Davide_derosaa/status/2005449683452428328)
 
 ## 🚀 Features
 
